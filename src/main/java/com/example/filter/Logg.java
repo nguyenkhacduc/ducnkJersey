@@ -9,7 +9,7 @@ import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 
-public class Log implements Filter {
+public class Logg implements Filter {
     private static Logger logger;
     private static Marker marker;
 
