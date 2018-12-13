@@ -11,7 +11,8 @@ import java.util.EnumSet;
 
 public class App {
     public static void main(String[] args) {
-        Server server = new Server(8080);
+        String port = System.getenv("PORT") != null ? System.getenv("PORT") : "8080";
+        Server server = new Server(Integer.parseInt(port));
         ServletContextHandler contextHandler = new ServletContextHandler(server, "/", ServletContextHandler.SESSIONS);
 
         final EnumSet<DispatcherType> REQUEST_SCOPE = EnumSet.of(DispatcherType.REQUEST);

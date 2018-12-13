@@ -7,7 +7,7 @@
         <packaging>war</packaging>
       </options>
     </properties>
-    <root id="archive" name="JerseyDemos.war">
+    <root id="archive" name="ducnk.war">
       <element id="artifact" artifact-name="EmployManagement:war exploded" />
     </root>
   </artifact>

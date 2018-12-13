@@ -1,2 +1,2 @@
-web: java $JAVA_OPTS -jar target/dependency/webapp-runner.jar --port $PORT target/JerseyDemos.war
+web: java -jar target/ducnk-jar-with-dependencies.jar
 
