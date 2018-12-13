@@ -11,7 +11,7 @@ import java.util.List;
 import org.json.JSONObject;
 import com.google.gson.*;
 
-@Path("ducnk")
+@Path("/")
 public class EmployManage {
 
     private static List<Employee> employeeList = new ArrayList<Employee>();
@@ -26,7 +26,13 @@ public class EmployManage {
     }*/
 
     @GET
-    @Path("employees")
+    @Produces(MediaType.TEXT_PLAIN)
+    public Response forFun(){
+        return Response.ok("Hi!!!", MediaType.TEXT_PLAIN).build();
+    }
+
+    @GET
+    @Path("/ducnk/employees")
     @Produces(MediaType.APPLICATION_JSON)
     public String getAllEmployees()
     {
@@ -37,7 +43,7 @@ public class EmployManage {
     }
 
     @GET
-    @Path("employees/{id}")
+    @Path("/ducnk/employees/{id}")
     @Consumes(MediaType.APPLICATION_JSON)
     public Response getEmployeeById(@PathParam("id") Integer id){
         for (Employee employee : employeeList){
@@ -50,7 +56,7 @@ public class EmployManage {
     }
 
     @GET
-    @Path("employees/search")
+    @Path("/ducnk/employees/search")
     @Consumes(MediaType.APPLICATION_JSON)
     public Response searchEmployee(
         @DefaultValue("") @QueryParam("created_by") String created_by,
@@ -76,7 +82,7 @@ public class EmployManage {
     }
 
     @POST
-    @Path("/employees")
+    @Path("/ducnk/employees")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Response addEmployee( String receivedEmployee ) throws URISyntaxException
@@ -108,7 +114,7 @@ public class EmployManage {
     }
 
     @PUT
-    @Path("/employees/{id}")
+    @Path("/ducnk/employees/{id}")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Response updateEmployeeById(@PathParam("id") Integer id, String receivedEmployee)
@@ -151,7 +157,7 @@ public class EmployManage {
     }
 
     @DELETE
-    @Path("/employees/{id}")
+    @Path("/ducnk/employees/{id}")
     public Response deleteEmployeeById(@PathParam("id") Integer id)
     {
         for (Employee employee : employeeList){
